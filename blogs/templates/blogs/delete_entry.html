@@ -1,0 +1,16 @@
+{% extends 'blogs/base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+    <form method="post" action="{% url 'blogs:delete_entry' entry.id %}" class="card-header">
+        {% csrf_token %}
+        <h3>Are you sure you want to delete this entry?</h3>
+        <p>{{ entry.text }}</p>
+        {% buttons %}
+            <button type="submit" class="btn btn-primary">Yes, delete</button>
+        {% endbuttons %}
+    </form>
+
+
+{% endblock content %}
+
